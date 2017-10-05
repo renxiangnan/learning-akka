@@ -12,7 +12,6 @@ object MethosInFuture extends App {
 
   val parts = Array(f1, f1)
   val futures = parts.map(p => Future { p.value.get.get })
-  futures
 
   val result = Future.firstCompletedOf(futures)
 }
