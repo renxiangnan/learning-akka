@@ -1,4 +1,4 @@
-package akka_cookbook.chapter1
+package akka_cookbook.chapter1_divingIntoAkka
 
 import akka.actor.{Actor, ActorSystem, Props}
 
