@@ -16,7 +16,7 @@ object Greeter2 {
 class Greeter2 extends Actor {
   import Greeter2._
 
-  override def receive = onMessage(currentGreeting = "hello")
+  override def receive: Receive = onMessage(currentGreeting = "hello")
 
   def onMessage(currentGreeting: String): Receive = {
     case WhoToGreet(who) =>

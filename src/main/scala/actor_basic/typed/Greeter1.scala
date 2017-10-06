@@ -13,7 +13,7 @@ class Greeter1 extends Actor {
 
   private var greeting = "hello"
 
-  override def receive = {
+  override def receive: Receive = {
     case WhoToGreet(who) =>
       greeting = s"hello, $who"
     case Greet =>
@@ -26,10 +26,12 @@ object Greeter1 {
   final case class WhoToGreet(who: String)
 }
 
+
 object HelloWorldApp1 {
   import Greeter1._
   def main(args: Array[String]): Unit = {
     val system = ActorSystem("HelloWorld")
+
     try {
       val greeter: ActorRef = system.actorOf(Props[Greeter1], "greeter")
       greeter ! WhoToGreet("World")
