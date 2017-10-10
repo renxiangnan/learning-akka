@@ -1,7 +1,7 @@
-package akka_cookbook.chapter7_remoting_and_clustering.hello_akka_remoting.look_up
+package akka_cookbook.chapter7_remoting_and_clustering.look_up
 
 import akka.actor.{ActorRef, ActorSystem, Props}
-import akka_cookbook.chapter7_remoting_and_clustering.hello_akka_remoting.simple_remote_actors.SimpleActor
+import akka_cookbook.chapter7_remoting_and_clustering.simple_remote_actors.SimpleActor
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration._

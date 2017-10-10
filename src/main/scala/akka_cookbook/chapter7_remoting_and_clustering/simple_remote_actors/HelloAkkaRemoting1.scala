@@ -1,4 +1,4 @@
-package akka_cookbook.chapter7_remoting_and_clustering.hello_akka_remoting.simple_remote_actors
+package akka_cookbook.chapter7_remoting_and_clustering.simple_remote_actors
 
 import akka.actor.{ActorSystem, Props}
 
