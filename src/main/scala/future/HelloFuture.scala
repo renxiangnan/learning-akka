@@ -1,7 +1,8 @@
 package future
 import java.time._
+
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
-import ExecutionContext.Implicits.global
 
 /**
   * Created by xiangnanren on 02/10/2017.

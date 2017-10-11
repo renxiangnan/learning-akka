@@ -1,7 +1,5 @@
 package akka_cookbook.chapter1_divingIntoAkka
-import java.util.concurrent.ConcurrentLinkedQueue
-
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.actor.{Actor, ActorSystem, Props}
 import akka.dispatch._
 import com.typesafe.config.Config
 /**

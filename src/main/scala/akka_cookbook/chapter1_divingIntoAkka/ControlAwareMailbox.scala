@@ -1,8 +1,7 @@
 package akka_cookbook.chapter1_divingIntoAkka
 
-import akka.actor.Actor
+import akka.actor.{Actor, ActorSystem, Props}
 import akka.dispatch.ControlMessage
-import akka.actor.{Props, Actor, ActorSystem}
 
 
 /**

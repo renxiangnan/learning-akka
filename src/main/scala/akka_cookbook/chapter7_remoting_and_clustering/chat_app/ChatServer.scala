@@ -2,6 +2,10 @@ package akka_cookbook.chapter7_remoting_and_clustering.chat_app
 
 import akka.actor.{Actor, ActorRef, Props, Terminated}
 
+/**
+  * @author Xiangnan Ren
+  */
+
 class ChatServer extends Actor {
   import ChatServer._
   var onlineClients = Set.empty[ActorRef]

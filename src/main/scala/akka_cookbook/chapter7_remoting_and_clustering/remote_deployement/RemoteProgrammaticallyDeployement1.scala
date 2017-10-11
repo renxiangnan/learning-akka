@@ -4,6 +4,10 @@ import akka.actor.{ActorSystem, Address, Deploy, Props}
 import akka.remote.RemoteScope
 import akka_cookbook.chapter7_remoting_and_clustering.simple_remote_actors.SimpleActor
 
+/**
+  * @author Xiangnan Ren
+  */
+
 object RemoteProgrammaticallyDeployement1 extends App {
   val actorSystem =
     ActorSystem("RemoteActorsProgrammatically1")

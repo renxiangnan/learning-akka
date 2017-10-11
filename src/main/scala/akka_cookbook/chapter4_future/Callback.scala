@@ -1,7 +1,7 @@
 package akka_cookbook.chapter4_future
 
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 import scala.util.{Failure, Success}
 /**
   * Created by xiangnanren on 05/10/2017.

@@ -6,7 +6,9 @@ import akka_cookbook.chapter7_remoting_and_clustering.simple_remote_actors.Simpl
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration._
 
-
+/**
+  * @author Xiangnan Ren
+  */
 
 /**
   * ActorSelection traverses the hierarchy of the actors in the path to look

@@ -2,6 +2,7 @@ package akka_cookbook.chapter6_persistence.FSM
 
 import akka.actor.{ActorLogging, Props}
 import akka.persistence.fsm.PersistentFSM
+
 import scala.reflect.ClassTag
 
 class PersistentFSMActor(_persistenceId: String)

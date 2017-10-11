@@ -1,8 +1,7 @@
 package akka_cookbook.chapter5_scheduling
 
-import akka.actor.{Props, Actor, ActorSystem}
-import com.typesafe.config.Config
-import com.typesafe.config.ConfigFactory
+import akka.actor.{Actor, ActorSystem, Props}
+import com.typesafe.config.{Config, ConfigFactory}
 
 
 // Config Akka programmatically

@@ -2,6 +2,7 @@ package actor_basic.typed
 
 
 import akka.actor._
+
 import scala.concurrent.Await
 import scala.language.postfixOps
 
@@ -11,10 +12,11 @@ import scala.language.postfixOps
   */
 object Example_01 extends  App {
 
+  import akka.actor.{TypedActor, TypedProps}
   import akka.event.Logging
-  import scala.concurrent.{ Promise, Future }
-  import akka.actor.{ TypedActor, TypedProps }
+
   import scala.concurrent.duration._
+  import scala.concurrent.{Future, Promise}
 
   trait Squarer {
     //fire-and-forget消息

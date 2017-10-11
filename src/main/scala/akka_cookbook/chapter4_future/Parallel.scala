@@ -1,7 +1,7 @@
 package akka_cookbook.chapter4_future
 
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 
 /**

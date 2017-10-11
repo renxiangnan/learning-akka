@@ -2,9 +2,9 @@ package akka_cookbook.chapter4_future
 
 import akka.util.Timeout
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
-import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
   * Created by xiangnanren on 05/10/2017.

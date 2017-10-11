@@ -1,11 +1,8 @@
 package actor_basic.typed
 
-import scala.io.StdIn
+import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
-import akka.actor.Actor
-import akka.actor.ActorRef
-import akka.actor.ActorSystem
-import akka.actor.Props
+import scala.io.StdIn
 
 object Greeter2 {
 

@@ -1,11 +1,12 @@
 package actor_basic.wait_replying
 
 import akka.actor.{Actor, ActorSystem, Props}
+import akka.pattern.ask
 import akka.util.Timeout
+
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
 import scala.language.postfixOps
-import akka.pattern.ask
 
 /**
   * Created by xiangnanren on 01/10/2017.

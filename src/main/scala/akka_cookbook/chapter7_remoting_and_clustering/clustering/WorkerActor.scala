@@ -2,6 +2,10 @@ package akka_cookbook.chapter7_remoting_and_clustering.clustering
 
 import akka.actor.Actor
 
+/**
+  * @author Xiangnan Ren
+  */
+
 class WorkerActor extends Actor {
   override def receive: Receive = {
     case Work(workId) =>

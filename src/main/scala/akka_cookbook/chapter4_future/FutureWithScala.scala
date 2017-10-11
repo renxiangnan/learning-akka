@@ -1,6 +1,5 @@
 package akka_cookbook.chapter4_future
 
-import akka.actor.Actor.Receive
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout

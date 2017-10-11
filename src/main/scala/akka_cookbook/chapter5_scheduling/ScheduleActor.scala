@@ -1,6 +1,7 @@
 package akka_cookbook.chapter5_scheduling
 
-import akka.actor.{Actor, Props, ActorSystem}
+import akka.actor.{Actor, ActorSystem, Props}
+
 import scala.concurrent.duration._
 
 

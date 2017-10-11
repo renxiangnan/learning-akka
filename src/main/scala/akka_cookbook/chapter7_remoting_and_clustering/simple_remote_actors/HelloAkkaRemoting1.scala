@@ -2,6 +2,9 @@ package akka_cookbook.chapter7_remoting_and_clustering.simple_remote_actors
 
 import akka.actor.{ActorSystem, Props}
 
+/**
+  * @author Xiangnan Ren
+  */
 
 /**
   * Create 2 separate Akka applications running on different ports

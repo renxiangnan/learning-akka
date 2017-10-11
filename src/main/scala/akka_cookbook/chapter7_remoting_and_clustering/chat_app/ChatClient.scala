@@ -1,12 +1,16 @@
 package akka_cookbook.chapter7_remoting_and_clustering.chat_app
 
 import akka.actor.{Actor, ActorRef, Props}
+import akka.pattern.{ask, pipe}
 import akka.util.Timeout
 import akka_cookbook.chapter7_remoting_and_clustering.chat_app.ChatServer.{Connect, Disconnect, Disconnected, Message}
-import akka.pattern.ask
-import akka.pattern.pipe
 
 import scala.concurrent.duration._
+
+
+/**
+  * @author Xiangnan Ren
+  */
 
 class ChatClient(chatServer: ActorRef) extends Actor {
   import context.dispatcher

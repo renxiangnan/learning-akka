@@ -6,6 +6,10 @@ import akka.routing.RoundRobinPool
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration._
 
+/**
+  * @author Xiangnan Ren
+  */
+
 // use     -Dconfig.resource=application-2.conf
 object ScalingOutWorkerApp extends App {
   val actorSystem = ActorSystem("WorkerActorSystem")

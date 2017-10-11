@@ -1,7 +1,7 @@
 package future
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent._
-import ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 

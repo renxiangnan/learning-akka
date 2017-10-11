@@ -2,8 +2,9 @@ package actor_basic.stopping_actors
 
 import akka.actor._
 import akka.pattern.gracefulStop
-import scala.concurrent.{Await, Future}
+
 import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 import scala.language.postfixOps
 
 

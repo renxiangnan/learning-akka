@@ -4,6 +4,10 @@ import akka.actor.{Actor, ActorRef, Props}
 import akka_cookbook.chapter7_remoting_and_clustering.chat_app.ChatClientInterface.Check
 import akka_cookbook.chapter7_remoting_and_clustering.chat_app.ChatServer.Disconnect
 
+/**
+  * @author Xiangnan Ren
+  */
+
 class ChatClientInterface(chatClient: ActorRef) extends Actor {
   override def preStart(): Unit = {
     println("You are logged in. Please type and press enter to send messages. " +

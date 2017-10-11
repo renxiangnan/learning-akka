@@ -3,13 +3,10 @@ package future
 /**
   * Created by xiangnanren on 02/10/2017.
   */
-import scala.concurrent._
-import scala.concurrent.duration._
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{Future, _}
 import scala.concurrent.duration._
 import scala.util.Random
-import scala.util.Try
 
 object Kitchen extends App {
 

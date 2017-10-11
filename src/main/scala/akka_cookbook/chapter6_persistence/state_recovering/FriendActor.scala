@@ -1,8 +1,7 @@
 package akka_cookbook.chapter6_persistence.state_recovering
 
 import akka.actor.{ActorLogging, Props}
-import akka.persistence.{PersistentActor, Recovery,
-RecoveryCompleted, SnapshotOffer}
+import akka.persistence.{PersistentActor, Recovery, RecoveryCompleted, SnapshotOffer}
 
 class FriendActor(friendId: String, r: Recovery)
   extends PersistentActor with ActorLogging {

@@ -3,6 +3,7 @@ package akka_cookbook.chapter5_scheduling
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.pattern.{CircuitBreaker, ask}
 import akka.util.Timeout
+
 import scala.concurrent.duration._
 
 /**

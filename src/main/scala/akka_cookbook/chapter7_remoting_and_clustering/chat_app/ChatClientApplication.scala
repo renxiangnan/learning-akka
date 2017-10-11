@@ -1,10 +1,13 @@
 package akka_cookbook.chapter7_remoting_and_clustering.chat_app
 
-import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.actor.{ActorRef, ActorSystem}
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration._
 
+/**
+  * @author Xiangnan Ren
+  */
 
 // -Dconfig.resources=application-2.conf
 object ChatClientApplication1 extends App {

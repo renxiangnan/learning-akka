@@ -1,7 +1,12 @@
 package akka_cookbook.chapter7_remoting_and_clustering.clustering
 
 import akka.actor.{Actor, ActorRef, Terminated}
+
 import scala.util.Random
+
+/**
+  * @author Xiangnan Ren
+  */
 
 class MasterActor extends Actor {
   var workers = List.empty[ActorRef]
