@@ -2,6 +2,7 @@ package akka_cookbook.chapter2_supervision.supervisor_strategy_all_1
 
 import akka.actor.SupervisorStrategy.{Escalate, Restart, Resume, Stop}
 import akka.actor._
+
 import scala.concurrent.duration._
 
 /**

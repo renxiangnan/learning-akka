@@ -12,7 +12,7 @@ class TemperatureActor extends Actor {
   var temperatureMap = Map.empty[Location, Double]
 
   override def preStart(): Unit = {
-    println(s"I have been created at " +
+    println(s"The temperature actor has been created at " +
       s"${Cluster(context.system).selfUniqueAddress}")
   }
 
@@ -28,14 +28,12 @@ class TemperatureActor extends Actor {
     case _ @ UpdateTemperature(location, currentTemp) =>
       temperatureMap += (location -> currentTemp)
       println(s"Temp update: $location")
-
     case GetCurrentTemperature(location) =>
       sender ! temperatureMap(location)
   }
 }
 
 object TemperatureActor {
-
   case class Location(country: String, city: String) {
     override def toString: String = s"$country-$city"
   }
@@ -48,7 +46,7 @@ object TemperatureActor {
   }
 
   val numberOfShards = 100
-  // ExtractShardId: Msg => ShardId (String)
+  // type signature of ExtractShardId: Msg => ShardId (String)
   val extractShardId: ShardRegion.ExtractShardId = {
     case UpdateTemperature(location, _) =>
       // partitioning by finding remainder
