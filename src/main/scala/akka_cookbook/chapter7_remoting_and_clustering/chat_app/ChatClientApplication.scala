@@ -1,6 +1,7 @@
 package akka_cookbook.chapter7_remoting_and_clustering.chat_app
 
 import akka.actor.{ActorRef, ActorSystem}
+import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration._
@@ -11,7 +12,8 @@ import scala.concurrent.duration._
 
 // -Dconfig.resources=application-2.conf
 object ChatClientApplication1 extends App {
-  val actorSystem = ActorSystem("ChatServer")
+  val config = ConfigFactory.load("application-2.conf")
+  val actorSystem = ActorSystem("ChatServer", config)
   implicit  val dispatcher: ExecutionContextExecutor = actorSystem.dispatcher
   val chatServerAddress = "akka.tcp://ChatServer@127.0.0.1:2552/user/chatServer"
 
@@ -29,7 +31,8 @@ object ChatClientApplication1 extends App {
 
 // -Dconfig.resources=application-3.conf
 object ChatClientApplication2 extends App {
-  val actorSystem = ActorSystem("ChatServer")
+  val config = ConfigFactory.load("application-3.conf")
+  val actorSystem = ActorSystem("ChatServer", config)
   implicit  val dispatcher: ExecutionContextExecutor = actorSystem.dispatcher
   val chatServerAddress = "akka.tcp://ChatServer@127.0.0.1:2552/user/chatServer"
 
@@ -47,6 +50,8 @@ object ChatClientApplication2 extends App {
 
 // -Dconfig.resource=application-1.conf
 object ChatServerApplication extends App {
-  val actorSystem = ActorSystem("ChatServer")
+  val config = ConfigFactory.load("application-1.conf")
+
+  val actorSystem = ActorSystem("ChatServer", config)
   actorSystem.actorOf(ChatServer.props, "chatServer")
 }

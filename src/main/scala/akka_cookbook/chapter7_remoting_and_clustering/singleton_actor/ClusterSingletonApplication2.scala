@@ -3,13 +3,16 @@ package akka_cookbook.chapter7_remoting_and_clustering.singleton_actor
 import akka.actor.{ActorSystem, PoisonPill, Props}
 import akka.cluster.Cluster
 import akka.cluster.singleton._
+import com.typesafe.config.ConfigFactory
+
 import scala.concurrent.duration._
 
 /**
   * @author Xiangnan Ren
   */
 object ClusterSingletonApplication2 extends App {
-  val actorSystem = ActorSystem("ClusterSystem")
+  val config = ConfigFactory.load("singleton/application-cluster-autodown-2.conf")
+  val actorSystem = ActorSystem("ClusterSystem", config)
   val cluster = Cluster(actorSystem)
   val clusterSingletonSettings = ClusterSingletonManagerSettings(actorSystem)
   val clusterSingletonManager = ClusterSingletonManager.

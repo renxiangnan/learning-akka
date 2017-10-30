@@ -12,5 +12,4 @@ class ClusterAwareSimpleActor extends Actor {
     case _ => println(s"I have been created at ${cluster.selfUniqueAddress}")
 
   }
-
 }

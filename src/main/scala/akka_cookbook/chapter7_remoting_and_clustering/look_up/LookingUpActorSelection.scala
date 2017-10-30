@@ -2,6 +2,7 @@ package akka_cookbook.chapter7_remoting_and_clustering.look_up
 
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka_cookbook.chapter7_remoting_and_clustering.simple_remote_actors.SimpleActor
+import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration._
@@ -18,7 +19,8 @@ import scala.concurrent.duration._
 
 // use -Dconfig.resource=application-1.conf
 object LookingUpActorSelection extends App {
-  val actorSystem = ActorSystem("LookingUpActors")
+  val config = ConfigFactory.load("application-1.conf")
+  val actorSystem = ActorSystem("LookingUpActors", config)
 
   implicit val dispatcher: ExecutionContextExecutor = actorSystem.dispatcher
   val selection = actorSystem.actorSelection(
@@ -34,7 +36,7 @@ object LookingUpActorSelection extends App {
 
 // -Dconfig.resource=application-2.conf
 object LookingUpRemoteActors extends App {
-
-  val actorSystem = ActorSystem("LookingUpRemoteActors")
+  val config = ConfigFactory.load("application-2.conf")
+  val actorSystem = ActorSystem("LookingUpRemoteActors", config)
   actorSystem.actorOf(Props[SimpleActor], "remoteActor")
 }

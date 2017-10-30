@@ -1,4 +1,4 @@
-package akka_cookbook.chapter7_remoting_and_clustering.clustering
+package akka_cookbook.chapter7_remoting_and_clustering.scaling_out
 
 import akka.actor.Actor
 

@@ -14,7 +14,9 @@ object Util {
 
 }
 
-
+/**
+  * Display all actors states
+  */
 class PrivateMethodCaller(x: AnyRef, methodName: String) {
   def apply(_args: Any*): Any = {
     val args = _args.map(_.asInstanceOf[AnyRef])
