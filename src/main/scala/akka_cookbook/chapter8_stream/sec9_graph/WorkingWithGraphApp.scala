@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.graph
+package akka_cookbook.chapter8_stream.sec9_graph
 
 import akka.actor.ActorSystem
 import akka.stream._

@@ -23,6 +23,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" % "akka-distributed-data-experimental_2.11" % "2.4.17",
   "com.typesafe.akka" % "akka-cluster-tools_2.11" % akkaVersion,
   "com.typesafe.akka" % "akka-stream_2.11" % akkaVersion,
+  "com.typesafe.akka" % "akka-stream-kafka_2.11" % "0.13",
   "org.iq80.leveldb" % "leveldb" % "0.7"
 )
     

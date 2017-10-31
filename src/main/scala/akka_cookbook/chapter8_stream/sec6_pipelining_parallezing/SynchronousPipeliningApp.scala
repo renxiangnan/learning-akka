@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.pipelining
+package akka_cookbook.chapter8_stream.sec6_pipelining_parallezing
 
 import akka.stream.scaladsl._
 

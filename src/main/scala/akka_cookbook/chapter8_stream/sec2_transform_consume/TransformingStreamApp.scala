@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.transform_consume
+package akka_cookbook.chapter8_stream.sec2_transform_consume
 
 import java.nio.file.Paths
 

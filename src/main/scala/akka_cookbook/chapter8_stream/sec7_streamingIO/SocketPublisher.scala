@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.streamingIO
+package akka_cookbook.chapter8_stream.sec7_streamingIO
 import java.net._
 import java.io._
 import scala.io._

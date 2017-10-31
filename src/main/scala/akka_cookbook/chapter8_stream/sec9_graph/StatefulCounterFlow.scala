@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.graph
+package akka_cookbook.chapter8_stream.sec9_graph
 
 import akka.stream.{Attributes, FlowShape, Inlet, Outlet}
 import akka.stream.stage.{GraphStage, GraphStageLogic, InHandler, OutHandler}

@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.streamingIO
+package akka_cookbook.chapter8_stream.sec7_streamingIO
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer

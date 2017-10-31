@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.error_handling
+package akka_cookbook.chapter8_stream.sec5_error_handling
 
 import akka.actor.ActorSystem
 import akka.stream.{ActorAttributes, ActorMaterializer,

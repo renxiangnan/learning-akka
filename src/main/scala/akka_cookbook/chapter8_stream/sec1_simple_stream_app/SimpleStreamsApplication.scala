@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.simple_stream_app
+package akka_cookbook.chapter8_stream.sec1_simple_stream_app
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer

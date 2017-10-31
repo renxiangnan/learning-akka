@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.create_sources_flows_sinks
+package akka_cookbook.chapter8_stream.sec3_create_sources_flows_sinks
 
 import java.nio.file.Paths
 import akka.actor.ActorSystem

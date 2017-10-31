@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.custom_stream_processing
+package akka_cookbook.chapter8_stream.sec4_custom_stream_processing
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer

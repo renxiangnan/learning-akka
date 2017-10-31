@@ -1,10 +1,10 @@
-package akka_cookbook.chapter8_stream.stream_actors
+package akka_cookbook.chapter8_stream.sec8_stream_actors
 
 import akka.actor.{ActorSystem, Props}
 import akka.stream.{ActorMaterializer, OverflowStrategy}
 import akka.stream.scaladsl.{Sink, Source}
 import akka.util.Timeout
-import akka_cookbook.chapter8_stream.stream_actors.SinkActor.{AckSinkActor, CompletedSinkActor, InitSinkActor}
+import akka_cookbook.chapter8_stream.sec8_stream_actors.SinkActor.{AckSinkActor, CompletedSinkActor, InitSinkActor}
 import akka.pattern.ask
 import scala.concurrent.duration._
 

@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.custom_stream_processing
+package akka_cookbook.chapter8_stream.sec4_custom_stream_processing
 
 import akka.stream.{Attributes, Outlet, SourceShape}
 import akka.stream.stage.{GraphStage, GraphStageLogic, OutHandler}

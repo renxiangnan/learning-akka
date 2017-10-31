@@ -1,7 +1,7 @@
-package akka_cookbook.chapter8_stream.stream_actors
+package akka_cookbook.chapter8_stream.sec8_stream_actors
 
 import akka.actor.Actor
-import akka_cookbook.chapter8_stream.stream_actors.SinkActor.{AckSinkActor, InitSinkActor}
+import akka_cookbook.chapter8_stream.sec8_stream_actors.SinkActor.{AckSinkActor, InitSinkActor}
 
 /**
   * @author Xiangnan Ren

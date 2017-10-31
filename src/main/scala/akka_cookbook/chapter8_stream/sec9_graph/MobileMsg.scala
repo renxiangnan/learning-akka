@@ -1,4 +1,4 @@
-package akka_cookbook.chapter8_stream.graph
+package akka_cookbook.chapter8_stream.sec9_graph
 
 import scala.util.Random
 
