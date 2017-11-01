@@ -14,7 +14,7 @@ object HandlingErrorApp extends App {
   implicit val actorSystem: ActorSystem = ActorSystem("HandlingErrors")
 
   val streamDecider: Supervision.Decider = {
-    case e: IndexOutOfBoundsException =>
+    case _: IndexOutOfBoundsException =>
       println("Dropping element because of IndexOutOfBoundException. Resuming.")
       Supervision.Resume
 
@@ -22,18 +22,15 @@ object HandlingErrorApp extends App {
   }
 
   val flowDecider: Supervision.Decider = {
-    case e: IllegalArgumentException =>
+    case _: IllegalArgumentException =>
       println("Dropping element because of IllegalArgumentException. Restarting.")
       Supervision.Restart
 
     case _ => Supervision.Stop
   }
 
-  val actorMaterializerSettings = ActorMaterializerSettings(actorSystem).
-    withSupervisionStrategy(streamDecider)
-
-  implicit val actorMaterializer =
-    ActorMaterializer(actorMaterializerSettings)
+  val actorMaterializerSettings = ActorMaterializerSettings(actorSystem).withSupervisionStrategy(streamDecider)
+  implicit val actorMaterializer: ActorMaterializer = ActorMaterializer(actorMaterializerSettings)
 
   val words = List("Handling", "Error", "In", "Akka", "Streams", "")
 

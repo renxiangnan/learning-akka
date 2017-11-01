@@ -12,6 +12,21 @@ object SimpleStreamsApplication extends App {
   /**
     * There are 3 main stages in Akka Streams: sources, flows, and sinks .
     *
+    *      Source:      something with exactly one output stream
+    *      Sink:        something with exactly one input stream
+    *      Flow:        something with exactly one input and one output stream
+    *      BidiFlow:    something with exactly two input streams and two output streams
+    *                   that conceptually behave like two Flows of opposite direction
+    *                   
+    *      Graph:       a packaged stream processing topology that exposes a certain set of input and output ports,
+    *                   characterized by an object of type Shape.
+    *
+    *      Shape:       A Shape describes the inlets and outlets of a Graph. In keeping with the
+    *                   philosophy that a Graph is a freely reusable blueprint, everything that
+    *                   matters from the outside are the connections that can be made with it,
+    *                   otherwise it is just a black box.
+    *
+    *
     * {{{ActorMaterializer}}} is responsible for creating the underlying actors with
     * the specific functionality you define in your stream. Since ActorMaterializer
     * creates actors, it also needs an ActorSystem. This is the reason why we implicitly

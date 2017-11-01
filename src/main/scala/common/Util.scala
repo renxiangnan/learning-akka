@@ -1,6 +1,6 @@
 package common
 
-import akka_cookbook.chapter7_remoting_and_clustering.cluster_sharding.ClusterShardingApplication1.res
+import akka_cookbook.chapter7_remoting_and_clustering.sec9_cluster_sharding.ClusterShardingApplication1.res
 
 /**
   * Created by xiangnanren on 05/10/2017.

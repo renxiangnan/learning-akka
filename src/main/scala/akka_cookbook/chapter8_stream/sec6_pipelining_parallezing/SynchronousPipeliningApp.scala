@@ -6,14 +6,14 @@ import akka.stream.scaladsl._
 /**
   * @author Xiangnan Ren
   */
-object SynchronousPipeliningApp extends PipeliningParallelizing {
+object SynchronousPipeliningApp extends App with PipeliningParallelizing {
   runGraph(Flow[Wash].via(washStage).via(dryStage))
 }
 
-object AsynchronousPipeliningApp extends PipeliningParallelizing {
+object AsynchronousPipeliningApp extends App with PipeliningParallelizing {
   runGraph(Flow[Wash].via(washStage.async).via(dryStage.async))
 }
 
-object ParallelizingApplication extends PipeliningParallelizing {
+object ParallelizingApplication extends App with PipeliningParallelizing {
   runGraph(Flow[Wash].via(parallelStage))
 }
