@@ -17,7 +17,7 @@ object SimpleStreamsApplication extends App {
     *      Flow:        something with exactly one input and one output stream
     *      BidiFlow:    something with exactly two input streams and two output streams
     *                   that conceptually behave like two Flows of opposite direction
-    *                   
+    *
     *      Graph:       a packaged stream processing topology that exposes a certain set of input and output ports,
     *                   characterized by an object of type Shape.
     *
@@ -27,7 +27,7 @@ object SimpleStreamsApplication extends App {
     *                   otherwise it is just a black box.
     *
     *
-    * {{{ActorMaterializer}}} is responsible for creating the underlying actors with
+    * ActorMaterializer is responsible for creating the underlying actors with
     * the specific functionality you define in your stream. Since ActorMaterializer
     * creates actors, it also needs an ActorSystem. This is the reason why we implicitly
     * defined one in our sample code.
