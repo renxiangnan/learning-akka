@@ -18,19 +18,20 @@ object SimpleStreamsApplication extends App {
     *      BidiFlow:    something with exactly two input streams and two output streams
     *                   that conceptually behave like two Flows of opposite direction
     *
-    *      Graph:       a packaged stream processing topology that exposes a certain set of input and output ports,
-    *                   characterized by an object of type Shape.
+    *      Graph:       a packaged stream processing topology that exposes a certain set
+    *                   of input and output ports, characterized by an object of type Shape.
     *
     *      Shape:       A Shape describes the inlets and outlets of a Graph. In keeping with the
     *                   philosophy that a Graph is a freely reusable blueprint, everything that
     *                   matters from the outside are the connections that can be made with it,
     *                   otherwise it is just a black box.
     *
+    *                   In other words, a shape represents the input and output ports of a reusable
+    *                   processing module
     *
-    * ActorMaterializer is responsible for creating the underlying actors with
-    * the specific functionality you define in your stream. Since ActorMaterializer
-    * creates actors, it also needs an ActorSystem. This is the reason why we implicitly
-    * defined one in our sample code.
+    *
+    *     ActorMaterializer is some kind of `compiler`. The graph we build is just a `blueprint`, and
+    *     we need materializer to turn it into something can run.
     */
   implicit val actorSystem: ActorSystem = ActorSystem("SimpleStream")
   implicit val actorMaterializer: ActorMaterializer = ActorMaterializer()

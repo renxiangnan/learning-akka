@@ -11,26 +11,37 @@ import scala.collection.immutable
 /**
   * @author Xiangnan Ren
   */
+
+
+/**
+  *
+  *     Source_1_[N] --->
+  *                      | ---> priorityPool1 --->
+  *     Source_1_[P] --->       (workerType1)     | ---> priorityPool2 --->
+  *                                               |      (workerType2)
+  *                              Source_2_[N] --->
+  *
+  */
 object App6_PriorityWorkerPool extends App {
   implicit val system = ActorSystem("sys")
   implicit val materializer = ActorMaterializer()
 
   // Define two worker flows
-  val worker1 = Flow[String].map("step 1 " + _)
-  val worker2 = Flow[String].map("step 2 " + _)
+  val workerType1 = Flow[String].map("Processed By worker 1 " + _)
+  val workerType2 = Flow[String].map("Processed By worker 2 " + _)
 
   RunnableGraph.fromGraph(GraphDSL.create(){ implicit builder =>
     import GraphDSL.Implicits._
 
     // Create two priority pools (graph)
-    val priorityPool1 = builder.add(PriorityWorkerPool(worker1, 4))
-    val priorityPool2 = builder.add(PriorityWorkerPool(worker2, 2))
+    val priorityPool1 = builder.add(PriorityWorkerPool(workerType1, 4))
+    val priorityPool2 = builder.add(PriorityWorkerPool(workerType2, 2))
 
-    Source(1 to 100).map("job: " + _) ~> priorityPool1.jobsIn
-    Source(1 to 100).map("Priority job: " + _) ~> priorityPool1.priorityJobsIn
+    Source(1 to 50).map("[N] job: " + _) ~> priorityPool1.jobsIn
+    Source(1 to 50).map("[P] First, Priority job: " + _) ~> priorityPool1.priorityJobsIn
 
     priorityPool1.resultOut ~> priorityPool2.jobsIn
-    Source(1 to 100).map("one-step, priority " + _) ~> priorityPool2.priorityJobsIn
+    Source(1 to 50).map("[P] Second, priority job: " + _) ~> priorityPool2.priorityJobsIn
 
     priorityPool2.resultOut ~> Sink.foreach(println)
 
@@ -51,8 +62,8 @@ object App6_PriorityWorkerPool extends App {
   *      3. Merge all results together and send them out through the only output port.
   *
   *        --- Normal Jobs --->                                   ---> Worker 1 --->
-  *                            | MergedPreferred ---> BalancePool |                 | ---> Merge(resultsMerge)
-  *      --- Priority Jobs --->                                   ---> Worker 2 --->
+  *                            | MergedPreferred ---> BalancePool |                 | ---> Merge
+  *      --- Priority Jobs --->  (priorityMerge)                  ---> Worker 2 --->   (resultsMerge)
   *
   */
 object PriorityWorkerPool {
@@ -108,6 +119,8 @@ case class PriorityWorkerPoolShape[In, Out](jobsIn: Inlet[In],
                                             priorityJobsIn: Inlet[In],
                                             resultOut: Outlet[Out]
                                            ) extends Shape {
+  // It is important to provide the list of all input and output
+  // ports with a stable order. Duplicates are not allowed.
   override val inlets = jobsIn :: priorityJobsIn :: Nil
   override val outlets = resultOut :: Nil
 
