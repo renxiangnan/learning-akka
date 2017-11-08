@@ -7,6 +7,7 @@ import akka.stream.scaladsl.{Balance, Flow, GraphDSL, Merge, MergePreferred, Run
 import akka.stream._
 
 import scala.collection.immutable
+import scala.concurrent.Await
 
 /**
   * @author Xiangnan Ren
@@ -35,7 +36,7 @@ object App6_PriorityWorkerPool extends App {
 
     // Create two priority pools (graph)
     val priorityPool1 = builder.add(PriorityWorkerPool(workerType1, 4))
-    val priorityPool2 = builder.add(PriorityWorkerPool(workerType2, 2))
+    val priorityPool2 = builder.add(PriorityWorkerPool(workerType2, 4))
 
     Source(1 to 50).map("[N] job: " + _) ~> priorityPool1.jobsIn
     Source(1 to 50).map("[P] First, Priority job: " + _) ~> priorityPool1.priorityJobsIn
@@ -49,7 +50,6 @@ object App6_PriorityWorkerPool extends App {
   }).run()
 
   Thread.sleep(1000)
-
 }
 
 
@@ -85,8 +85,11 @@ object PriorityWorkerPool {
 
       priorityMerge ~> balance
 
+      /**
+        *  In a for loop we wire all of our desired workers as outputs of this balancer element,
+        */
       for(i <- 0 until workerCount)
-        balance.out(i) ~> worker ~> resultsMerge.in(i)
+        balance.out(i) ~> worker.async ~> resultsMerge.in(i)
 
       PriorityWorkerPoolShape(
         jobsIn = priorityMerge.in(0),
